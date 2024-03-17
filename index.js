@@ -1,13 +1,13 @@
-import express from "express";
-import cors from "cors";
-import UserRoute from "./routes/UserRoute.js";
+import express from 'express';
+import pokemonRoutes from './routes/pokemonRoutes.js';
 
 const app = express();
-app.use(cors());
+const PORT = 3000;
+
 app.use(express.json());
-app.use(UserRoute);
 
+app.use('/', pokemonRoutes);
 
-app.listen(5000, () => console.log('Server up and running on port 5000...'));
-
-
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

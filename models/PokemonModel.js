@@ -11,7 +11,11 @@ const Pokemon = db.define('pokemon', {
     },
     name: {
         type: DataTypes.STRING
-        },
+    },
+    status: {
+        type: DataTypes.ENUM('0', '1'), 
+        defaultValue: '0' // Default value set to '0'
+    },
     skill: {
         type: DataTypes.STRING
     },
@@ -38,7 +42,3 @@ const Pokemon = db.define('pokemon', {
 });
 
 export default Pokemon;
-
-(async () => {
-    await db.sync(); 
-})();
